@@ -23,22 +23,21 @@
         android:id="@+id/activity_view_entry_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:paddingLeft="20dp"
         android:text="TextView"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/activity_view_entry_date"
-        app:layout_constraintTop_toTopOf="@+id/activity_view_entry_date" />
+        app:layout_constraintStart_toStartOf="@+id/activity_view_entry_date"
+        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_date" />
 
     <TextView
         android:id="@+id/activity_view_entry_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:paddingLeft="20dp"
         android:text="TextView"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@+id/activity_view_entry_date"
-        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_date" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_country" />
 
     <ImageView
         android:id="@+id/activity_entry_map_image"

@@ -22,6 +22,7 @@ class ViewEntryActivity : AppCompatActivity() {
 
         binding.activityEntryImage.setImageResource(entry.imageId)
         binding.activityViewEntryLocation.text = entry.locationName
+        binding.activityViewEntryCountry.text = entry.countryName
         binding.activityViewEntryDate.text = entry.date.toString()
         binding.activityViewEntryContent.text = entry.entryContent
         binding.activityEntryMapImage.setImageResource(R.drawable.map_placeholder)
