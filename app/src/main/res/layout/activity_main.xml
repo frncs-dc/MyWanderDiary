@@ -51,7 +51,6 @@
         android:background="@drawable/rounded_fab_primary2"
         android:elevation="4dp"
         android:padding="20dp"
-        android:theme="appcompat"
         app:layout_constraintBottom_toBottomOf="@+id/flFragment"
         app:layout_constraintEnd_toEndOf="@+id/flFragment"
         app:srcCompat="@drawable/add_circle_24px" />
