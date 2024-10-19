@@ -53,6 +53,7 @@ android {
 
 dependencies {
     implementation(libs.play.services.maps)
+    implementation(libs.androidx.activity)
     val appcompat_version = "1.7.0"
     val fragment_version = "1.8.4"
 

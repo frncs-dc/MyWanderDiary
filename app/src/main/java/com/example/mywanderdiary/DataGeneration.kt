@@ -1,0 +1,25 @@
+package com.example.mywanderdiary
+
+import java.text.SimpleDateFormat
+
+public class DataGeneration {
+
+    companion object {
+        fun createSampleEntries(): ArrayList<Entry> {
+            val entries = ArrayList<Entry>()
+
+            // Sample dates
+            val sdf = SimpleDateFormat("yyyy-MM-dd")
+            val date1 = sdf.parse("2023-01-15")
+            val date2 = sdf.parse("2023-02-20")
+            val date3 = sdf.parse("2023-03-10")
+
+            // Adding sample entries
+            entries.add(Entry("Tsim Sha Tsui", date1, "Visited the iconic Tsim Sha Tsui.", "Hong Kong", R.drawable.image1))
+            entries.add(Entry("Monza Barcade", date2, "Visited the iconic Monza Barcade.", "Philippines", R.drawable.image2))
+            entries.add(Entry("Tanghalang Haribon", date3, "Visited the iconic Tanghalang Haribon", "Philippines", R.drawable.image3))
+
+            return entries
+        }
+    }
+}
