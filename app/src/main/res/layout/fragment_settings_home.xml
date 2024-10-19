@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/fragment_settings_home_img_map_placeholder"
             android:layout_width="0dp"
-            android:layout_height="340dp"
+            android:layout_height="240dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/map_placeholder" />
 
         <EditText
-            android:id="@+id/fragment_settings_home_et_address3"
+            android:id="@+id/fragment_settings_home_et_address"
             android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_marginTop="16dp"
@@ -50,9 +50,12 @@
             android:textAlignment="viewStart"
             android:textColor="#000000"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_settings_home_btn_save"
             app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_img_map_placeholder"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/fragment_settings_home_img_map_placeholder"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_img_map_placeholder" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_img_map_placeholder"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/fragment_settings_home_btn_save"
@@ -66,7 +69,7 @@
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_et_address3" />
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_et_address" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

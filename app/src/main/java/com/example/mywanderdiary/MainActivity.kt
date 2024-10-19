@@ -24,29 +24,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up the ViewPager with the TabLayout
-        val fragmentList = listOf(
-            SettingsHomeFragment(),
-            SettingsAwayFragment(),
-            SettingsCustomFragment()
-        )
-
-        val adapter = ViewPagerAdapter(this, fragmentList)
-        binding.viewPager.adapter = adapter
-
-        // Link TabLayout with ViewPager
-        TabLayoutMediator(binding.fragmentSettingsTabLayout, binding.viewPager) { tab, position ->
-            tab.text = when (position) {
-                0 -> "Home"
-                1 -> "Away"
-                else -> "Custom"
-            }
-        }.attach()
-
         // You can set the initial fragment with bottom navigation as well
         val homeFragment = HomeFragment()
         val mapFragment = MapFragment()
         val settingsFragment = SettingsFragment()
+        val settingsHomeFragment = SettingsHomeFragment()
+        val settingsAwayFragment = SettingsAwayFragment()
+        val settingsCustomFragment = SettingsCustomFragment()
 
         setCurrentFragment(homeFragment)
 
@@ -65,13 +49,4 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.flFragment, fragment)
             commit()
         }
-
-    // Adapter for ViewPager
-    private inner class ViewPagerAdapter(
-        activity: AppCompatActivity,
-        private val fragments: List<Fragment>
-    ) : FragmentStateAdapter(activity) {
-        override fun getItemCount(): Int = fragments.size
-        override fun createFragment(position: Int): Fragment = fragments[position]
-    }
 }

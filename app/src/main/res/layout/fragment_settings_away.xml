@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/fragment_settings_away_img_map_placeholder"
             android:layout_width="0dp"
-            android:layout_height="340dp"
+            android:layout_height="240dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -45,9 +45,12 @@
             android:layout_marginEnd="72dp"
             android:progressTint="@color/secondary"
             android:thumbTint="@color/accent"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_settings_away_btn_save"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/fragment_settings_away_img_map_placeholder"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/fragment_settings_away_tv_seekbar_value"
