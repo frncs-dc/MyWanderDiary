@@ -1,5 +1,6 @@
 package com.example.mywanderdiary
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.whenStarted
 import com.example.mywanderdiary.databinding.ActivityViewEntryBinding
 
 class ViewEntryActivity : AppCompatActivity() {
@@ -26,8 +28,19 @@ class ViewEntryActivity : AppCompatActivity() {
         binding.activityViewEntryDate.text = entry.stringDate
         binding.activityViewEntryContent.text = entry.entryContent
         binding.activityEntryMapImage.setImageResource(R.drawable.map_placeholder)
+
         binding.activityViewEntryBtnClose.setOnClickListener {
             finish() // Close this activity and return to the previous one
+        }
+
+        binding.activityViewEntryBtnEdit.setOnClickListener{
+            val intent = Intent(this, EditEntryActivity::class.java)
+            intent.putExtra("KEY_ENTRY", entry)
+            startActivity(intent)
+        }
+
+        binding.activityViewEntryBtnDelete.setOnClickListener{
+
         }
     }
 

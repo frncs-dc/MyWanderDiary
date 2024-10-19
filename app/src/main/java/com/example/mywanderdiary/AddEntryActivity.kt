@@ -1,13 +1,10 @@
 package com.example.mywanderdiary
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.mywanderdiary.databinding.ActivityAddEntryBinding
 
-class AddEntry : AppCompatActivity() {
+class AddEntryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddEntryBinding
 
@@ -20,7 +17,7 @@ class AddEntry : AppCompatActivity() {
             finish()
         }
 
-        binding.acitivityBtnAddEntryClose.setOnClickListener {
+        binding.acitivityAddEntryClose.setOnClickListener {
             finish()
         }
 

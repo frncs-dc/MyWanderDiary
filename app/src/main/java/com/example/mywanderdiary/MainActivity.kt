@@ -4,16 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 import com.example.mywanderdiary.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.mainActivityBtnAddEntry.setOnClickListener{
-            val intent = Intent(this, AddEntry::class.java)
+            val intent = Intent(this, AddEntryActivity::class.java)
             startActivity(intent)
         }
     }

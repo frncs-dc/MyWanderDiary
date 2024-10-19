@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_add_entry"
+    android:id="@+id/cl_edit_entry"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".AddEntryActivity">
+    tools:context=".EditEntryActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/activity_add_entry_input_location"
+        android:id="@+id/activity_edit_entry_input_location"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -37,7 +37,7 @@
         android:layout_marginTop="24dp"
         android:text="Visit Date"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/activity_add_entry_input_location" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_edit_entry_input_location" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -45,7 +45,7 @@
         android:layout_height="200dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/activity_add_entry_input_location"
+        app:layout_constraintEnd_toEndOf="@+id/activity_edit_entry_input_location"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/map_placeholder" />
@@ -57,28 +57,28 @@
         android:layout_marginTop="16dp"
         android:text="Map Location"
         app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/activity_add_entry_input_date" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_edit_entry_input_date" />
 
     <Button
-        android:id="@+id/acitivity_btn_add_entry"
+        android:id="@+id/acitivity_btn_edit_entry"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Add Entry"
-        app:layout_constraintBottom_toTopOf="@+id/acitivity_add_entry_close"
+        android:text="Save Entry"
+        app:layout_constraintBottom_toTopOf="@+id/acitivity_edit_entry_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/acitivity_add_entry_close"
+        android:id="@+id/acitivity_edit_entry_close"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Cancel Entry"
+        android:text="Cancel Edit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/acitivity_btn_add_entry"
-        app:layout_constraintStart_toStartOf="@+id/acitivity_btn_add_entry" />
+        app:layout_constraintEnd_toEndOf="@+id/acitivity_btn_edit_entry"
+        app:layout_constraintStart_toStartOf="@+id/acitivity_btn_edit_entry" />
 
     <TextView
         android:id="@+id/textView5"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/activity_add_entry_input_content"
+        android:id="@+id/activity_edit_entry_input_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -102,13 +102,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/activity_add_entry_input_date"
+        android:id="@+id/activity_edit_entry_input_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Add Visit Date"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="@+id/activity_add_entry_input_location"
+        app:layout_constraintEnd_toEndOf="@+id/activity_edit_entry_input_location"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

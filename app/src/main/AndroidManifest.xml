@@ -13,7 +13,10 @@
         android:theme="@style/Theme.MyWanderDiary"
         tools:targetApi="31">
         <activity
-            android:name=".AddEntry"
+            android:name=".EditEntryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEntryActivity"
             android:exported="false" />
         <activity
             android:name=".ViewEntryActivity"
