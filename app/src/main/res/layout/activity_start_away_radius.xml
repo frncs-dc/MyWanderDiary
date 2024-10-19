@@ -43,6 +43,18 @@
         app:layout_constraintStart_toStartOf="@+id/activity_start_away_radius_tv_heading"
         app:layout_constraintTop_toBottomOf="@+id/activity_start_away_radius_tv_heading" />
 
+    <TextView
+        android:id="@+id/activity_start_away_radius_tv_seekbar_value"
+        style="@style/Widget.MaterialComponents.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="780m"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/activity_start_away_radius_btn_continue"
+        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar" />
+
     <Button
         android:id="@+id/activity_start_away_radius_btn_continue"
         style="@style/Widget.Material3.Button"
@@ -56,17 +68,5 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="278dp" />
-
-    <TextView
-        android:id="@+id/activity_start_away_radius_tv_seekbar_value"
-        style="@style/Widget.MaterialComponents.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_medium"
-        android:text="780m"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_seekbar"
-        app:layout_constraintEnd_toEndOf="@+id/activity_start_away_radius_btn_continue"
-        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

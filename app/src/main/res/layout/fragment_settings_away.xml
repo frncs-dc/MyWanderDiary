@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fragment_settings_away_tv_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Away Radius"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/fragment_settings_away_img_map_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="340dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/map_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_tv_heading" />
+
+        <SeekBar
+            android:id="@+id/fragment_settings_away_seekbar"
+            style="@android:style/Widget.Material.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="72dp"
+            android:progressTint="@color/secondary"
+            android:thumbTint="@color/accent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fragment_settings_away_img_map_placeholder"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder" />
+
+        <TextView
+            android:id="@+id/fragment_settings_away_tv_seekbar_value"
+            style="@style/Widget.MaterialComponents.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="780m"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_away_seekbar"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_img_map_placeholder"
+            app:layout_constraintTop_toTopOf="@+id/fragment_settings_away_seekbar" />
+
+        <Button
+            android:id="@+id/fragment_settings_away_btn_save"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/rounded_button_primary2"
+            android:fontFamily="@font/inter_medium"
+            android:text="Save"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_tv_seekbar_value" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
