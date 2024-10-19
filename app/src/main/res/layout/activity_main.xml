@@ -48,6 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_button_primary2"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/flFragment"
         app:layout_constraintEnd_toEndOf="@+id/flFragment"
         app:srcCompat="@drawable/add_circle_24px" />
