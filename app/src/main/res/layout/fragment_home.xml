@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_entryview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".HomeFragment">
 
     <EditText
@@ -23,6 +23,7 @@
         android:id="@+id/rv_entries"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/main_activity_input_searchentry"
         app:layout_constraintTop_toBottomOf="@+id/main_activity_input_searchentry" />
