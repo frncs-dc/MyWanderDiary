@@ -3,4 +3,5 @@
     <string name="title_activity_start_home_maps">activity_start_home_maps</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_text_search_entry">Search for a journal entry</string>
 </resources>
