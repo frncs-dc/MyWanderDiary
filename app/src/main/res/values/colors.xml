@@ -7,12 +7,12 @@
 <!--    <color name="teal_700">#FF018786</color>-->
 <!--    <color name="black">#FF000000</color>-->
 <!--    <color name="white">#FFFFFFFF</color>-->
-    <color name="background1">#E2ECDC</color>
-    <color name="primary1">#A7F28C</color>
     <color name="secondary">#90B483</color>
     <color name="accent">#005608</color>
     <color name="primary2">#A1E887</color>
+    <color name="primary">#A1E887</color>
     <color name="background2">#E6F0E0</color>
+    <color name="background">#E6F0E0</color>
     <color name="navigation_bar">#D2E2C9</color>
     <color name="gray">#474F45</color>
     <color name="white">#FFFFFF</color>

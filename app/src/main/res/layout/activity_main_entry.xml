@@ -5,7 +5,6 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="170dp"
-    android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="16dp">
 
@@ -20,8 +19,10 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -44,11 +45,10 @@
             android:id="@+id/activity_main_entry_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:fontFamily="@font/inter_medium"
             android:shadowColor="#50000000"
             android:shadowDy="3"
-            android:shadowRadius="5"
+            android:shadowRadius="2"
             android:text="July 28, 2024"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
@@ -59,10 +59,11 @@
             android:id="@+id/activity_main_entry_tv_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/inter_medium"
             android:shadowColor="#50000000"
             android:shadowDy="3"
-            android:shadowRadius="5"
+            android:shadowRadius="2"
             android:text="Philippines"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
