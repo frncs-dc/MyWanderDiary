@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background2">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/activity_start_custom_ignored_mapView"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_start_custom_ignored_tv_heading"
+        style="@style/Widget.AppCompat.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="2"
+        android:text="Set Custom Ignored Locations"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_start_custom_ignored_mapView" />
+
+    <EditText
+        android:id="@+id/activity_start_custom_ignored_et_address"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button_white"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:hint="Custom street address"
+        android:inputType="textPostalAddress"
+        android:paddingLeft="18sp"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/activity_start_custom_ignored_tv_heading"
+        app:layout_constraintTop_toBottomOf="@+id/activity_start_custom_ignored_tv_heading" />
+
+    <Button
+        android:id="@+id/activity_start_custom_ignored_btn_continue"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/rounded_button_primary2"
+        android:fontFamily="@font/inter_medium"
+        android:text="Continue"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/activity_start_custom_ignored_et_address" />
+
+    <Button
+        android:id="@+id/activity_start_custom_ignored_btn_addmore"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/rounded_button_secondary"
+        android:fontFamily="@font/inter_medium"
+        android:text="Add More"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activity_start_custom_ignored_btn_continue" />
 </androidx.constraintlayout.widget.ConstraintLayout>
