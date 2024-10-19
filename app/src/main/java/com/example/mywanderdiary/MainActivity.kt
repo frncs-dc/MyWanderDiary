@@ -2,6 +2,7 @@ package com.example.mywanderdiary
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -25,13 +26,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set up the ViewPager with the TabLayout
+        val fragmentList = listOf(
+            SettingsHomeFragment(),
+            SettingsAwayFragment(),
+            SettingsCustomFragment()
+        )
+
         // You can set the initial fragment with bottom navigation as well
         val homeFragment = HomeFragment()
         val mapFragment = MapFragment()
         val settingsFragment = SettingsFragment()
-        val settingsHomeFragment = SettingsHomeFragment()
-        val settingsAwayFragment = SettingsAwayFragment()
-        val settingsCustomFragment = SettingsCustomFragment()
 
         setCurrentFragment(homeFragment)
 
@@ -54,5 +59,19 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, fragment)
             commit()
+            if(fragment is SettingsFragment) {
+                binding.mainActivityBtnAddEntry.visibility = View.GONE
+            } else {
+                binding.mainActivityBtnAddEntry.visibility = View.VISIBLE
+            }
         }
+
+    // Adapter for ViewPager
+    private inner class ViewPagerAdapter(
+        activity: AppCompatActivity,
+        private val fragments: List<Fragment>
+    ) : FragmentStateAdapter(activity) {
+        override fun getItemCount(): Int = fragments.size
+        override fun createFragment(position: Int): Fragment = fragments[position]
+    }
 }
