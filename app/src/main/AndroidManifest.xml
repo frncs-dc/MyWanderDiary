@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyWanderDiary"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteEntryActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditEntryActivity"
             android:exported="false" />
         <activity

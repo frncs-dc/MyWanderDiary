@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.whenStarted
 import com.example.mywanderdiary.databinding.ActivityViewEntryBinding
 
-class ViewEntryActivity : AppCompatActivity() {
+class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialogListener {
 
     private lateinit var binding: ActivityViewEntryBinding
 
@@ -40,8 +41,13 @@ class ViewEntryActivity : AppCompatActivity() {
         }
 
         binding.activityViewEntryBtnDelete.setOnClickListener{
-
+            DeleteDialogFragment().show(supportFragmentManager, "DELETE_DIALOG")
         }
+    }
+
+    override fun onDeleteConfirmed() {
+        Toast.makeText(this, "Entry deleted", Toast.LENGTH_SHORT).show()
+        finish()
     }
 
 }
