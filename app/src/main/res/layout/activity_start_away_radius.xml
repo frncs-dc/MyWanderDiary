@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/activity_start_away_radius_mapView"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_start_away_radius_tv_heading"
+        style="@style/Widget.AppCompat.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="Set Away Radius"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_start_away_radius_mapView" />
+
+    <SeekBar
+        android:id="@+id/activity_start_away_radius_seekbar"
+        style="@android:style/Widget.Material.SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="72dp"
+        android:progressTint="@color/secondary"
+        android:thumbTint="@color/accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/activity_start_away_radius_tv_heading"
+        app:layout_constraintTop_toBottomOf="@+id/activity_start_away_radius_tv_heading" />
+
+    <Button
+        android:id="@+id/activity_start_away_radius_btn_continue"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/rounded_button_primary2"
+        android:fontFamily="@font/inter_medium"
+        android:text="Continue"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="278dp" />
+
+    <TextView
+        android:id="@+id/activity_start_away_radius_tv_seekbar_value"
+        style="@style/Widget.MaterialComponents.TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="780m"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/activity_start_away_radius_btn_continue"
+        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
