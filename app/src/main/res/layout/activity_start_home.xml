@@ -60,6 +60,7 @@
         android:text="Continue"
         android:textColor="@android:color/black"
         android:textSize="16sp"
+        app:iconTint="@color/secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/activity_start_home_et_address" />
 </androidx.constraintlayout.widget.ConstraintLayout>

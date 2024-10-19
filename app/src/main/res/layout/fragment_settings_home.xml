@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background2"
+    tools:context=".SettingsHomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/fragment_settings_home_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background2"
+            android:visibility="visible"
+            app:tabIndicatorColor="@color/accent"
+            app:tabIndicatorFullWidth="false"
+            app:tabSelectedTextColor="@color/accent"
+            app:tabTextAppearance="@style/TextAppearance.Material3.LabelMedium">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_settings_home_tab_item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_settings_home_tab_item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Away" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/fragment_settings_home_tab_item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <TextView
+            android:id="@+id/fragment_settings_home_tv_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Home Location"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_tabLayout" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/fragment_settings_home_mapView"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_tv_heading" />
+
+        <EditText
+            android:id="@+id/fragment_settings_home_et_address"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button_white"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Home street address"
+            android:inputType="textPostalAddress"
+            android:paddingLeft="18sp"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_mapView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/fragment_settings_home_mapView"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_mapView" />
+
+        <Button
+            android:id="@+id/fragment_settings_home_btn_save"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/rounded_button_primary2"
+            android:fontFamily="@font/inter_medium"
+            android:text="Save"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_et_address" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
