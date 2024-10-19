@@ -1,5 +1,6 @@
 package com.example.mywanderdiary
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_item_settings -> setCurrentFragment(settingsFragment)
             }
             true
+        }
+
+        binding.mainActivityBtnAddEntry.setOnClickListener{
+            val intent = Intent(this, AddEntry::class.java)
+            startActivity(intent)
         }
     }
 
