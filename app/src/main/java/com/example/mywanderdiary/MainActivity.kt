@@ -10,37 +10,42 @@ import com.example.mywanderdiary.databinding.ActivityMainBinding
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.example.mywanderdiary.databinding.ActivityOnboardingBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding;
+    private lateinit var mainBinding: ActivityMainBinding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // You can set the initial fragment with bottom navigation as well
-        val homeFragment = HomeFragment()
-        val mapFragment = MapFragment()
-        val settingsFragment = SettingsFragment()
-
-        setCurrentFragment(homeFragment)
-
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.menu_item_home -> setCurrentFragment(homeFragment)
-                R.id.menu_item_map -> setCurrentFragment(mapFragment)
-                R.id.menu_item_settings -> setCurrentFragment(settingsFragment)
-            }
-            true
-        }
-
-        binding.mainActivityBtnAddEntry.setOnClickListener{
-            val intent = Intent(this, AddEntryActivity::class.java)
+        val complete_status = intent.getStringExtra("KEY_ONBOARDING_STATUS")
+        if(!complete_status.equals("COMPLETE")){
+            val intent = Intent(this, OnboardingActivity::class.java)
             startActivity(intent)
+        } else {
+            mainBinding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(mainBinding.root)
+
+            // You can set the initial fragment with bottom navigation as well
+            val homeFragment = HomeFragment()
+            val mapFragment = MapFragment()
+            val settingsFragment = SettingsFragment()
+
+            setCurrentFragment(homeFragment)
+
+            mainBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.menu_item_home -> setCurrentFragment(homeFragment)
+                    R.id.menu_item_map -> setCurrentFragment(mapFragment)
+                    R.id.menu_item_settings -> setCurrentFragment(settingsFragment)
+                }
+                true
+            }
+            mainBinding.mainActivityBtnAddEntry.setOnClickListener{
+                val intent = Intent(this, AddEntryActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -49,10 +54,18 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.flFragment, fragment)
             commit()
             if(fragment is SettingsFragment) {
-                binding.mainActivityBtnAddEntry.visibility = View.GONE
+                mainBinding.mainActivityBtnAddEntry.visibility = View.GONE
             } else {
-                binding.mainActivityBtnAddEntry.visibility = View.VISIBLE
+                mainBinding.mainActivityBtnAddEntry.visibility = View.VISIBLE
             }
         }
 
+    // Adapter for ViewPager
+    private inner class ViewPagerAdapter(
+        activity: AppCompatActivity,
+        private val fragments: List<Fragment>
+    ) : FragmentStateAdapter(activity) {
+        override fun getItemCount(): Int = fragments.size
+        override fun createFragment(position: Int): Fragment = fragments[position]
+    }
 }

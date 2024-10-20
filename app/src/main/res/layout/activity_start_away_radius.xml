@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/background2">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/activity_start_away_radius_mapView"
+    <ImageView
+        android:id="@+id/activity_onboarding_set_radius_image"
         android:layout_width="0dp"
         android:layout_height="440dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/map_placeholder"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/activity_start_away_radius_tv_heading"
@@ -27,7 +29,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_start_away_radius_mapView" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_onboarding_set_radius_image" />
 
     <SeekBar
         android:id="@+id/activity_start_away_radius_seekbar"
@@ -52,7 +54,7 @@
         android:text="780m"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_seekbar"
-        app:layout_constraintEnd_toEndOf="@+id/activity_start_away_radius_btn_continue"
+        app:layout_constraintStart_toEndOf="@+id/activity_start_away_radius_seekbar"
         app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar" />
 
     <Button
@@ -67,6 +69,6 @@
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="278dp" />
+        app:layout_constraintEnd_toEndOf="@+id/activity_start_away_radius_tv_seekbar_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
