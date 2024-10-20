@@ -27,7 +27,7 @@ class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialog
         binding.activityViewEntryLocation.text = entry.locationName
         binding.activityViewEntryCountry.text = " - " + entry.countryName
         binding.activityViewEntryDate.text = entry.stringDate
-        binding.activityViewEntryContent.text = entry.entryContent
+        binding.activityViewEntryContentText.text = entry.entryContent
         binding.activityEntryMapImage.setImageResource(R.drawable.map_placeholder)
 
         binding.activityViewEntryBtnClose.setOnClickListener {
