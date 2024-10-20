@@ -81,18 +81,6 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_entry_cover_image" />
 
     <TextView
-        android:id="@+id/activity_view_entry_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto"
-        android:text="TextView"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/activity_view_entry_location"
-        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_location" />
-
-    <TextView
         android:id="@+id/activity_view_entry_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,6 +91,18 @@
         app:layout_constraintEnd_toStartOf="@+id/activity_view_entry_country"
         app:layout_constraintStart_toStartOf="@+id/activity_view_entry_location"
         app:layout_constraintTop_toTopOf="@+id/activity_view_entry_country" />
+
+    <TextView
+        android:id="@+id/activity_view_entry_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="TextView"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_view_entry_location"
+        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_location" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_view_entry_content_constraintLayout"
