@@ -7,5 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 
 class SettingsHomeFragment : Fragment(R.layout.fragment_settings_home) {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_settings_home, container, false)
+        return view
+    }
 }

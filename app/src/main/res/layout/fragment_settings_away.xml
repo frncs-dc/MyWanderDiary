@@ -45,12 +45,10 @@
             android:layout_marginEnd="72dp"
             android:progressTint="@color/secondary"
             android:thumbTint="@color/accent"
-            app:layout_constraintBottom_toTopOf="@+id/fragment_settings_away_btn_save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/fragment_settings_away_img_map_placeholder"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder" />
 
         <TextView
             android:id="@+id/fragment_settings_away_tv_seekbar_value"
@@ -69,14 +67,14 @@
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/rounded_button_primary2"
             android:fontFamily="@font/inter_medium"
             android:text="Save"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_tv_seekbar_value" />
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_tv_seekbar_value"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_seekbar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

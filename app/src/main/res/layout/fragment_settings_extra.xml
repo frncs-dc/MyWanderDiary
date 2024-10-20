@@ -13,47 +13,95 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/fragment_settings_tabLayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/fragment_settings_extra_tv_header"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/background2"
-            android:visibility="visible"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Settings"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/fragment_settings_extra_map_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabIndicatorColor="@color/accent"
-            app:tabIndicatorFullWidth="false"
-            app:tabSelectedTextColor="@color/accent"
-            app:tabTextAppearance="@style/TextAppearance.Material3.LabelMedium">
+            app:srcCompat="@drawable/map_placeholder"
+            tools:layout_editor_absoluteY="79dp" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/fragment_settings_tab_item1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home" />
+        <EditText
+            android:id="@+id/fragment_settings_extra_et_address"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:background="@drawable/rounded_button_white"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Home street address"
+            android:inputType="textPostalAddress"
+            android:paddingLeft="18sp"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="25dp"
+            tools:layout_editor_absoluteY="349dp" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/fragment_settings_tab_item2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Away" />
+        <SeekBar
+            android:id="@+id/fragment_settings_extra_seekbar"
+            style="@android:style/Widget.Material.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/secondary"
+            android:thumbTint="@color/accent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_settings_extra_tv_seekbar_value"
+            app:layout_constraintStart_toStartOf="@+id/fragment_settings_extra_et_address"
+            tools:layout_editor_absoluteY="413dp" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/fragment_settings_tab_item3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Custom" />
-        </com.google.android.material.tabs.TabLayout>
+        <TextView
+            android:id="@+id/fragment_settings_extra_tv_seekbar_value"
+            style="@style/Widget.MaterialComponents.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="780m"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="342dp"
+            tools:layout_editor_absoluteY="408dp" />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_tabLayout"
-            tools:layout_editor_absoluteX="0dp" />
+        <EditText
+            android:id="@+id/fragment_settings_extra_et_custom_address"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:background="@drawable/rounded_button_white"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:hint="Custom street address"
+            android:inputType="textPostalAddress"
+            android:paddingLeft="18sp"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="528dp" />
+
+        <Button
+            android:id="@+id/fragment_settings_extra_btn_save"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_primary2"
+            android:fontFamily="@font/inter_medium"
+            android:text="Save"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="307dp"
+            tools:layout_editor_absoluteY="711dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

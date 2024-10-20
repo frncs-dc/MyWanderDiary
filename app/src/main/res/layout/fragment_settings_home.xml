@@ -50,26 +50,24 @@
             android:textAlignment="viewStart"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/fragment_settings_home_btn_save"
             app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_img_map_placeholder"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/fragment_settings_home_img_map_placeholder"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_img_map_placeholder"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_img_map_placeholder" />
 
         <Button
             android:id="@+id/fragment_settings_home_btn_save"
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/rounded_button_primary2"
             android:fontFamily="@font/inter_medium"
             android:text="Save"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_et_address" />
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_home_et_address"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_et_address" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
