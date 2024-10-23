@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.MyWanderDiary" parent="Theme.MaterialComponents.Light.NoActionBar">
-
-        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimary">@color/primary2</item>
         <item name="colorPrimaryDark">@color/navigation_bar</item>
+        <item name="colorSecondaryContainer">@color/secondary</item>
         <item name="colorOnBackground">@color/background</item>
     </style>
 
@@ -12,4 +12,7 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="properNavbarColor" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
 </resources>
