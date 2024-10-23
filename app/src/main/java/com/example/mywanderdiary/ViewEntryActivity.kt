@@ -23,6 +23,7 @@ class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialog
         setContentView(binding.root)
         val entry = intent.getSerializableExtra("KEY_ENTRY") as Entry
 
+        binding.activityViewEntryCoverImage.setImageResource(entry.coverImageId)
         binding.activityEntryImage.setImageResource(entry.imageId)
         binding.activityViewEntryLocation.text = entry.locationName
         binding.activityViewEntryCountry.text = " - " + entry.countryName

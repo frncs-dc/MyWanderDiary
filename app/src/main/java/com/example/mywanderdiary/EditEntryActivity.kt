@@ -22,7 +22,7 @@ class EditEntryActivity : AppCompatActivity() {
         binding.activityEditEntryInputDate.setText(entry.stringDate)
         binding.activityEditEntryInputLocation.setText(entry.locationName)
         binding.activityEditEntryInputContent.setText(entry.entryContent)
-        binding.imageView3.setImageResource(entry.imageId)
+        binding.imageView3.setImageResource(R.drawable.map_placeholder)
 
         binding.acitivityBtnEditEntry.setOnClickListener{
             entry.locationName = binding.activityEditEntryInputLocation.text.toString()

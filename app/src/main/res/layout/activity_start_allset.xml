@@ -34,11 +34,12 @@
 
     <Button
         android:id="@+id/activity_start_allset_btn_start"
-        style="@style/Widget.Material3.Button.TonalButton"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
         android:background="@drawable/rounded_button_primary2"
+        android:elevation="4dp"
         android:minWidth="88dip"
         android:text="Tap to Start"
         android:textColor="@color/gray"

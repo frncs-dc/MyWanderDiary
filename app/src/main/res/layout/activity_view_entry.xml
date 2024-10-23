@@ -50,7 +50,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/activity_entry_cover_image"
+        android:id="@+id/activity_view_entry_cover_image"
         android:layout_width="0dp"
         android:layout_height="240dp"
         android:layout_marginStart="16dp"
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_viewentry_tools"
         app:shapeAppearanceOverlay="@style/roundedImageView"
-        app:srcCompat="@drawable/image4" />
+        app:srcCompat="@drawable/image1" />
 
     <TextView
         android:id="@+id/activity_view_entry_location"
@@ -78,7 +78,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_entry_cover_image" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_view_entry_cover_image" />
 
     <TextView
         android:id="@+id/activity_view_entry_date"

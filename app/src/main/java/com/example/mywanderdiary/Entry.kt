@@ -4,8 +4,9 @@ import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class Entry(locationName: String, date: Date, entryContent: String, countryName: String, imageId: Int):
+class Entry(coverImageId: Int, locationName: String, date: Date, entryContent: String, countryName: String, imageId: Int):
     Serializable {
+    var coverImageId = coverImageId
     var locationName = locationName
     var countryName = countryName
     var date = date
