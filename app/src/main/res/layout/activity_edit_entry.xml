@@ -61,10 +61,12 @@
 
     <Button
         android:id="@+id/acitivity_btn_edit_entry"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/accent"
         android:text="Save Entry"
         app:layout_constraintBottom_toTopOf="@+id/acitivity_edit_entry_close"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +77,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/secondary"
         android:text="Cancel Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/acitivity_btn_edit_entry"
