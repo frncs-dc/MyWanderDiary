@@ -67,7 +67,7 @@
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/rounded_button_primary2"
             android:fontFamily="@font/inter_medium"
             android:text="Save"
