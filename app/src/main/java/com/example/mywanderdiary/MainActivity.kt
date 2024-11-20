@@ -6,20 +6,30 @@ import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.databinding.ActivityMainBinding
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
-import com.example.mywanderdiary.databinding.ActivityOnboardingBinding
+import com.example.mywanderdiary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainBinding: ActivityMainBinding;
+    private lateinit var mainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        /*
+        ActivityCompat.requestPermissions( // Requests user for permission
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            0
+        )
+         */
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         val complete_status = intent.getStringExtra("KEY_ONBOARDING_STATUS")
+
         if(!complete_status.equals("COMPLETE")){
             val intent = Intent(this, OnboardingActivity::class.java)
             startActivity(intent)

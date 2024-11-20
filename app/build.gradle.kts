@@ -57,6 +57,10 @@ dependencies {
     val appcompat_version = "1.7.0"
     val fragment_version = "1.8.4"
 
+    // Location Services integration
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("com.google.android.gms:play-services-location-license:12.0.1")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
