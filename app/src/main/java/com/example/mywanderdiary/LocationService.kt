@@ -69,7 +69,7 @@ class LocationService: Service() {
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         locationClient
-            .getLocationUpdates(20000L) // 20 seconds interval of getting new location
+            .getLocationUpdates(10000L) // 20 seconds interval of getting new location
             .catch { e -> e.printStackTrace() }
             .onEach { location ->
                 val lat = location.latitude.toString()
