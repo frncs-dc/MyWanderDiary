@@ -1,10 +1,12 @@
 package com.example.mywanderdiary
 
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.CoroutineScope
@@ -26,10 +28,25 @@ class LocationService: Service() {
 
     override fun onCreate() {
         super.onCreate()
+        createNotificationChannel()
         locationClient = DefaultLocationClient(
             applicationContext,
             LocationServices.getFusedLocationProviderClient(applicationContext)
         )
+    }
+
+    private fun createNotificationChannel() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "location",
+                "Location Tracking",
+                NotificationManager.IMPORTANCE_LOW
+            ).apply {
+                description = "This channel is used by MyWanderDiary to track your location."
+            }
+            val manager = getSystemService(NotificationManager::class.java)
+            manager.createNotificationChannel(channel)
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -45,8 +62,9 @@ class LocationService: Service() {
         val notification = NotificationCompat.Builder(this, "location")
             .setContentTitle("MyWanderDiary tracking location...")
             .setContentText("Location: null")
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setSmallIcon(R.drawable.ic_launcher_background) // Ensure this drawable exists
             .setOngoing(true)
+
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -62,6 +80,8 @@ class LocationService: Service() {
                 notificationManager.notify(1, updatedNotification.build())
             }
             .launchIn(serviceScope)
+
+        Log.d("LOC:", "service start")
 
         startForeground(1, notification.build())
     }
