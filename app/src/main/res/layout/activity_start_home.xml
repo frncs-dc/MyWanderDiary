@@ -6,16 +6,27 @@
     android:layout_height="match_parent"
     android:background="@color/background2">
 
-    <ImageView
-        android:id="@+id/activity_onboarding_set_home_image"
+<!--    <ImageView-->
+<!--        android:id="@+id/activity_onboarding_set_home_image"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="440dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:src="@drawable/map_placeholder"-->
+<!--        android:scaleType="centerCrop"/>-->
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
         android:layout_width="0dp"
         android:layout_height="440dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/map_placeholder"
-        android:scaleType="centerCrop"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/activity_start_home_tv_heading"
@@ -29,7 +40,7 @@
         android:layout_marginTop="44dp"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_onboarding_set_home_image" />
+        app:layout_constraintTop_toBottomOf="@+id/map" />
 
     <EditText
         android:id="@+id/activity_start_home_et_address"
