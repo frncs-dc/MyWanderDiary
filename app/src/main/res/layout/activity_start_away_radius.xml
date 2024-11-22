@@ -17,6 +17,15 @@
         android:src="@drawable/map_placeholder"
         android:scaleType="centerCrop"/>
 
+    <fragment
+        android:id="@+id/activity_onboarding_set_away_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="440dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/activity_start_away_radius_tv_heading"
         style="@style/Widget.AppCompat.TextView"
@@ -49,13 +58,14 @@
         style="@style/Widget.MaterialComponents.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/inter_medium"
         android:text="780m"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_seekbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar" />
+        app:layout_constraintEnd_toStartOf="@+id/activity_start_away_radius_btn_set"
+        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_seekbar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/activity_start_away_radius_btn_continue"
@@ -71,5 +81,19 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/activity_start_away_radius_btn_set"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/secondary"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Set"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_start_away_radius_tv_seekbar_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activity_start_away_radius_tv_seekbar_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
