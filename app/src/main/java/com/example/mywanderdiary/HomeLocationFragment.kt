@@ -1,6 +1,8 @@
 package com.example.mywanderdiary
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
@@ -10,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.mywanderdiary.database.LocationDatabase
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,6 +25,16 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
 
     private lateinit var gMap: GoogleMap
     private lateinit var addressInput: EditText
+    private var lat = 14.562961;
+    private var lon = -239.005310;
+    private lateinit var locationDatabase: LocationDatabase
+
+    // Initialize locationDatabase in onAttach instead of onViewCreated
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Safe to initialize now that the fragment is attached to the context
+        locationDatabase = LocationDatabase(context)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,6 +49,15 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
 
         // Set the button listener
         view.findViewById<Button>(R.id.activity_start_home_btn_continue).setOnClickListener {
+            locationDatabase.addLocation(
+                Location(
+                    0,
+                    "Home",
+                    LocationType.HOME,
+                    lat,
+                    lon
+                )
+            )
             (activity as OnboardingActivity).setCurrentFragment(SetRadiusFragment())
         }
 
@@ -55,7 +77,7 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
         gMap = googleMap
 
         // Default location
-        val defaultLocation = LatLng(14.562961, -239.005310)
+        val defaultLocation = LatLng(lat, lon)
         gMap.addMarker(MarkerOptions().position(defaultLocation).title("Home"))
         gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 14f))
     }
@@ -80,8 +102,8 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
             if (!addressList.isNullOrEmpty()) {
                 val address = addressList[0]
                 val locality = address.locality ?: "Unknown Location"
-                val lat = address.latitude
-                val lon = address.longitude
+                lat = address.latitude
+                lon = address.longitude
 
                 Toast.makeText(requireContext(), "Found: $locality", Toast.LENGTH_SHORT).show()
                 goToLocation(lat, lon, 14f)
