@@ -39,6 +39,11 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
             (activity as OnboardingActivity).setCurrentFragment(SetRadiusFragment())
         }
 
+        // Find location button
+        view.findViewById<Button>(R.id.activity_start_home_btn_search).setOnClickListener {
+            findOnMap()
+        }
+
         // Start location service
         Intent(requireContext(), LocationService::class.java).apply {
             action = LocationService.ACTION_START
@@ -64,7 +69,6 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
 
     private fun findOnMap() {
         val addressText = addressInput.text.toString()
-
         if (addressText.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter an address", Toast.LENGTH_SHORT).show()
             return
@@ -72,8 +76,8 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
 
         val geocoder = Geocoder(requireContext())
         try {
-            val addressList: List<Address> = geocoder.getFromLocationName(addressText, 1)
-            if (addressList.isNotEmpty()) {
+            val addressList: List<Address>? = geocoder.getFromLocationName(addressText, 1)
+            if (!addressList.isNullOrEmpty()) {
                 val address = addressList[0]
                 val locality = address.locality ?: "Unknown Location"
                 val lat = address.latitude

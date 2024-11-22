@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background2">
+    android:background="@color/background2"
+    tools:ignore="ExtraText"
+    tools:context="com.example.mywanderdiary.HomeLocationFragment">
 
     <ImageView
         android:id="@+id/activity_onboarding_set_home_image"
@@ -45,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="128dp"
         android:background="@drawable/rounded_button_white"
         android:ems="10"
         android:fontFamily="@font/inter"
@@ -73,5 +75,20 @@
         android:textSize="16sp"
         app:iconTint="@color/secondary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/activity_start_home_et_address" />
+        app:layout_constraintEnd_toEndOf="@+id/activity_start_home_btn_search" />
+
+    <Button
+        android:id="@+id/activity_start_home_btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/secondary"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Search"
+        android:textColor="@color/black"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_start_home_et_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_start_home_et_address"
+        app:layout_constraintTop_toTopOf="@+id/activity_start_home_et_address" />
 </androidx.constraintlayout.widget.ConstraintLayout>
