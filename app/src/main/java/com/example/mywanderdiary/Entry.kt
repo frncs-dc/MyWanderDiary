@@ -13,6 +13,7 @@ class Entry(coverImageId: Int, locationName: String, date: Date, entryContent: S
     var stringDate: String = formatDate(date)
     var entryContent = entryContent
     var imageId = imageId
+    // var locationID = locationID
 
     fun formatDate(date: Date): String {
         val formatter = SimpleDateFormat("MMMM dd, yyyy") // Full month name and day
