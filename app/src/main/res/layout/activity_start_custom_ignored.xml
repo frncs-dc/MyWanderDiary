@@ -46,6 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_button_white"
         android:ems="10"
         android:fontFamily="@font/inter"
@@ -55,7 +56,7 @@
         android:textAlignment="viewStart"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/activity_start_home_btn_search"
+        app:layout_constraintEnd_toStartOf="@+id/activity_onboarding_set_custom_btn_search"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/activity_start_custom_ignored_tv_heading"
         app:layout_constraintTop_toBottomOf="@+id/activity_start_custom_ignored_tv_heading" />
@@ -94,7 +95,6 @@
         android:id="@+id/activity_onboarding_set_custom_btn_search"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/secondary"
         android:insetTop="0dp"
@@ -104,6 +104,5 @@
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/activity_start_custom_ignored_et_address"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_start_custom_ignored_et_address"
         app:layout_constraintTop_toTopOf="@+id/activity_start_custom_ignored_et_address" />
 </androidx.constraintlayout.widget.ConstraintLayout>
