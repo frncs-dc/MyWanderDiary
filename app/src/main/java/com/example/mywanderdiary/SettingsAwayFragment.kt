@@ -84,7 +84,7 @@ class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapRea
             editor.putInt("RADIUS", radius)
             editor.apply()
 
-            Toast.makeText(requireContext(), "Updated Radius", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Updated Radius" + radius, Toast.LENGTH_SHORT).show()
 
         }
         return view
