@@ -60,7 +60,7 @@ class CustomIgnoredLocFragment: Fragment(R.layout.activity_start_custom_ignored)
             findOnMap()
             locationDatabase.addLocation(
                 Location(
-                    (LocationDatabase.cachedLocations?.size ?: 0) + 1,
+                    LocationDatabase.cachedLocations.size + 1,
                     addressInput.text.toString(),
                     LocationType.IGNORED,
                     lat,

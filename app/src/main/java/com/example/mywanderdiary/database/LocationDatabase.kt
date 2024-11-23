@@ -20,7 +20,7 @@ class LocationDatabase(context: Context) {
     // A companion object to hold the static ArrayList of Location objects
     companion object {
         // This ArrayList will persist through the app
-        var cachedLocations: ArrayList<Location>? = null
+        var cachedLocations: ArrayList<Location> = ArrayList<Location>()
     }
 
     // Inserts a provided media item into the database. Returns the id provided by the DB.
@@ -35,7 +35,7 @@ class LocationDatabase(context: Context) {
 
         val _id = db.insert(DBHandler.LOCATION_TABLE, null, contentValues)
 
-        cachedLocations?.add(location)
+        cachedLocations.add(location)
 
         db.close()
 
@@ -65,6 +65,9 @@ class LocationDatabase(context: Context) {
             selection,
             selectionArgs
         )
+
+        cachedLocations[location.LOCATION_ID] = location
+
         database.close()
 
 
@@ -127,8 +130,7 @@ class LocationDatabase(context: Context) {
     // This method will initialize the cachedLocations list
     fun initializeCachedLocations() {
         // Lazy load the cachedLocations list if it hasn't been initialized
-        if (cachedLocations == null) {
-            cachedLocations = getLocations()
-        }
+        cachedLocations.clear()
+        cachedLocations = getLocations()
     }
 }

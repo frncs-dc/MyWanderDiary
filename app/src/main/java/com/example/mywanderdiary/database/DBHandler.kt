@@ -41,4 +41,28 @@ class DBHandler (context: Context?) :
             db!!.execSQL("DROP TABLE IF EXISTS $LOCATION_TABLE")
             onCreate(db)
         }
+
+        // Delete all tables
+        // For debugging
+        private fun deleteAllTables(db: SQLiteDatabase) {
+            db.execSQL("PRAGMA foreign_keys = OFF;") // Disable foreign key constraints temporarily
+            val cursor = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null)
+            cursor.use {
+                while (it.moveToNext()) {
+                    val tableName = it.getString(0)
+                    if (tableName != "sqlite_sequence") { // Skip internal SQLite table
+                        db.execSQL("DROP TABLE IF EXISTS $tableName")
+                    }
+                }
+            }
+            db.execSQL("PRAGMA foreign_keys = ON;") // Re-enable foreign key constraints
+        }
+        // Clear all data at startup
+        // For debugging
+        fun clearDatabase() {
+            writableDatabase.use { db ->
+                deleteAllTables(db)
+                onCreate(db)
+            }
+        }
     }

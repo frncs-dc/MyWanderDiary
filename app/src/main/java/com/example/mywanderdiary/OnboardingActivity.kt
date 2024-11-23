@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.mywanderdiary.database.DBHandler
 import com.example.mywanderdiary.databinding.ActivityLandingPageBinding
 import com.example.mywanderdiary.databinding.ActivityOnboardingBinding
 import com.example.mywanderdiary.databinding.ActivityStartAllsetBinding
@@ -27,6 +28,12 @@ class OnboardingActivity : AppCompatActivity() {
 
         setCurrentFragment(landingpageFragment)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val dbHelper = DBHandler(this)
+        dbHelper.clearDatabase()
     }
 
     fun setCurrentFragment(fragment: Fragment) =

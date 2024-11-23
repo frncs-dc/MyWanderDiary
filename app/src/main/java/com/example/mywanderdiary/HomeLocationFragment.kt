@@ -52,7 +52,7 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
             locationDatabase.addLocation(
                 Location(
                     0,
-                    "Home",
+                    addressInput.text.toString(),
                     LocationType.HOME,
                     lat,
                     lon

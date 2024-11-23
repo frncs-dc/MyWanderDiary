@@ -23,15 +23,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/fragment_settings_away_img_map_placeholder"
+        <fragment
+            android:id="@+id/fragment_settings_away_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="0dp"
-            android:layout_height="240dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/map_placeholder"
+            android:layout_height="440dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_tv_heading" />
@@ -47,8 +43,8 @@
             android:thumbTint="@color/accent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/fragment_settings_away_img_map_placeholder"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_img_map_placeholder" />
+            app:layout_constraintStart_toStartOf="@+id/fragment_settings_away_map"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_away_map" />
 
         <TextView
             android:id="@+id/fragment_settings_away_tv_seekbar_value"
@@ -59,7 +55,7 @@
             android:text="780m"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_away_seekbar"
-            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_img_map_placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_settings_away_map"
             app:layout_constraintTop_toTopOf="@+id/fragment_settings_away_seekbar" />
 
         <Button

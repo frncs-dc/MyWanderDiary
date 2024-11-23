@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.mywanderdiary.database.DBHandler
 import com.example.mywanderdiary.database.LocationDatabase
 import com.example.mywanderdiary.databinding.ActivityMainBinding
 import com.google.android.gms.maps.GoogleMap
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 
     private fun setCurrentFragment(fragment: Fragment) =
