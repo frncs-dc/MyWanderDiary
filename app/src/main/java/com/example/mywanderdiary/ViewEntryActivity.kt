@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.whenStarted
 import com.example.mywanderdiary.databinding.ActivityViewEntryBinding
+import com.squareup.picasso.Picasso
 
 class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialogListener {
 
@@ -24,7 +25,9 @@ class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialog
         val entry = intent.getSerializableExtra("KEY_ENTRY") as Entry
 
         binding.activityViewEntryCoverImage.setImageResource(entry.coverImageId)
-        binding.activityEntryImage.setImageResource(entry.imageId)
+        Picasso.get()
+            .load(entry.imageId)
+            .into(this.binding.activityViewEntryCoverImage)
         binding.activityViewEntryLocation.text = entry.locationName
         binding.activityViewEntryDateCountry.text = entry.stringDate + " - " + entry.countryName
         binding.activityViewEntryContentText.text = entry.entryContent

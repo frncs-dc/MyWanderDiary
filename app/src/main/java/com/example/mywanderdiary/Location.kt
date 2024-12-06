@@ -8,4 +8,7 @@ class Location(
     var LOCATION_LON: Double
 ) {
 
+    fun setLocationName(name: String) {
+        LOCATION_NAME = name
+    }
 }

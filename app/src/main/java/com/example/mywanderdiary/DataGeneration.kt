@@ -1,5 +1,6 @@
 package com.example.mywanderdiary
 
+import android.net.Uri
 import java.text.SimpleDateFormat
 
 public class DataGeneration {
@@ -16,10 +17,10 @@ public class DataGeneration {
             val date4 = sdf.parse("2023-12-22")
 
             // Adding sample entries
-            entries.add(Entry(R.drawable.image1, "Tsim Sha Tsui", date1, "Visited the iconic Tsim Sha Tsui.", "Hong Kong", R.drawable.image1))
-            entries.add(Entry(R.drawable.image2, "Monza Barcade", date2, "Visited the iconic Monza Barcade.", "Philippines", R.drawable.image2))
-            entries.add(Entry(R.drawable.image3, "Tanghalang Haribon", date3, "Visited the iconic Tanghalang Haribon", "Philippines", R.drawable.image3))
-            entries.add(Entry(R.drawable.image4, "Gundam Base Tokyo", date4, "Visited the iconic Gundam Base Tokyo", "Japan", R.drawable.image4))
+//            entries.add(Entry(R.drawable.image1, "Tsim Sha Tsui", date1, "Visited the iconic Tsim Sha Tsui.", "Hong Kong",  "android.resource://com.example.mywanderdiary/${R.drawable.image1}"))
+//            entries.add(Entry(R.drawable.image2, "Monza Barcade", date2, "Visited the iconic Monza Barcade.", "Philippines", "android.resource://com.example.mywanderdiary/${R.drawable.image2}"))
+//            entries.add(Entry(R.drawable.image3, "Tanghalang Haribon", date3, "Visited the iconic Tanghalang Haribon", "Philippines", "android.resource://com.example.mywanderdiary/${R.drawable.image3}"))
+//            entries.add(Entry(R.drawable.image4, "Gundam Base Tokyo", date4, "Visited the iconic Gundam Base Tokyo", "Japan", "android.resource://com.example.mywanderdiary/${R.drawable.image4}"))
 
             return entries
         }

@@ -47,7 +47,7 @@ class DBHandler (context: Context?) :
                         ENTRY_DATE + " TEXT, " + // Store dates as TEXT in ISO 8601 format
                         ENTRY_CONTENT + " TEXT, " +
                         COUNTRY_NAME + " TEXT, " +
-                        IMAGE_ID + " INTEGER) "
+                        IMAGE_ID + " TEXT) "
 
             db?.execSQL(CREATE_MEDIA_TABLE)
             db?.execSQL(CREATE_ENTRY_TABLE)
