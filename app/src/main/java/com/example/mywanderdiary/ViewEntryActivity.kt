@@ -2,6 +2,7 @@ package com.example.mywanderdiary
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -27,6 +28,8 @@ class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialog
         Picasso.get()
             .load(entry.imageId)
             .into(this.binding.activityViewEntryCoverImage)
+
+        Log.d("IMAGE ID", entry.imageId)
         binding.activityViewEntryLocation.text = entry.entryName
         binding.activityViewEntryDateCountry.text = entry.stringDate + " - " + entry.countryName
         binding.activityViewEntryContentText.text = entry.entryContent
