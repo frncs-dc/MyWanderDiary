@@ -13,6 +13,6 @@ class EntryViewHolder (private val viewBinding: ActivityMainEntryBinding): Recyc
             .into(this.viewBinding.activityMainEntryIvImage)
         this.viewBinding.activityMainEntryTvDate.text = entry.stringDate
         this.viewBinding.activityMainEntryTvCountry.text = " - " + entry.countryName
-        this.viewBinding.activityMainEntryTvLocation.text = entry.locationName
+        this.viewBinding.activityMainEntryTvLocation.text = entry.entryName
     }
 }

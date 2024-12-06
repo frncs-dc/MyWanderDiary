@@ -5,10 +5,10 @@ import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class Entry(coverImageId: Int, locationName: String, date: Date, entryContent: String, countryName: String, imageId: String, locationID: Int):
+class Entry(coverImageId: Int, entryName: String, date: Date, entryContent: String, countryName: String, imageId: String, locationID: Int):
     Serializable {
     var coverImageId = coverImageId
-    var locationName = locationName
+    var entryName = entryName
     var countryName = countryName
     var date = date
     var stringDate: String = formatDate(date)

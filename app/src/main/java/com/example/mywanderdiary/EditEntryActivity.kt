@@ -20,12 +20,12 @@ class EditEntryActivity : AppCompatActivity() {
 
         val entry = intent.getSerializableExtra("KEY_ENTRY") as Entry
         binding.activityEditEntryInputDate.setText(entry.stringDate)
-        binding.activityEditEntryInputLocation.setText(entry.locationName)
+        binding.activityEditEntryInputLocation.setText(entry.entryName)
         binding.activityEditEntryInputContent.setText(entry.entryContent)
         binding.imageView3.setImageResource(R.drawable.map_placeholder)
 
         binding.acitivityBtnEditEntry.setOnClickListener{
-            entry.locationName = binding.activityEditEntryInputLocation.text.toString()
+            entry.entryName = binding.activityEditEntryInputLocation.text.toString()
             entry.date = sdf.parse(binding.activityEditEntryInputDate.text.toString())
             entry.stringDate = entry.formatDate(entry.date)
             entry.entryContent = binding.activityEditEntryInputContent.text.toString()

@@ -28,7 +28,7 @@ class ViewEntryActivity : AppCompatActivity(), DeleteDialogFragment.DeleteDialog
         Picasso.get()
             .load(entry.imageId)
             .into(this.binding.activityViewEntryCoverImage)
-        binding.activityViewEntryLocation.text = entry.locationName
+        binding.activityViewEntryLocation.text = entry.entryName
         binding.activityViewEntryDateCountry.text = entry.stringDate + " - " + entry.countryName
         binding.activityViewEntryContentText.text = entry.entryContent
         binding.activityEntryMapImage.setImageResource(R.drawable.map_placeholder)

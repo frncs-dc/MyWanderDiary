@@ -8,6 +8,8 @@ import android.util.Log
 import com.example.mywanderdiary.Entry
 import com.example.mywanderdiary.Location
 import com.example.mywanderdiary.LocationType
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class Database(context: Context) {
     // A private instance of the DB helper
@@ -49,6 +51,7 @@ class Database(context: Context) {
 
         val values = ContentValues().apply {
             put(DBHandler.COVER_IMAGE_ID, entry.coverImageId)
+            put(DBHandler.ENTRY_NAME, entry.entryName)
             put(DBHandler.ENTRY_DATE, entry.formatDate(entry.date)) // Save as string
             put(DBHandler.ENTRY_CONTENT, entry.entryContent)
             put(DBHandler.COUNTRY_NAME, entry.countryName)
@@ -141,6 +144,41 @@ class Database(context: Context) {
                 LocationType.valueOf(c.getString(c.getColumnIndexOrThrow(DBHandler.LOCATION_TYPE))),
                 c.getDouble(c.getColumnIndexOrThrow(DBHandler.LOCATION_LAT)),
                 c.getDouble(c.getColumnIndexOrThrow(DBHandler.LOCATION_LON)),
+            ))
+        }
+
+        c.close()
+        database.close()
+
+        return result
+    }
+
+    fun getEntries(): ArrayList<Entry>{
+        val result = ArrayList<Entry>()
+
+        val database: SQLiteDatabase = databaseHandler.readableDatabase
+
+        val c : Cursor = database.query(
+            DBHandler.ENTRY_TABLE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        while(c.moveToNext()) {
+            result.add(Entry(
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.COVER_IMAGE_ID)),
+                c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_NAME)),
+                dateFormat.parse(c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_DATE))), // As String, then parse if necessary
+                c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_CONTENT)),
+                c.getString(c.getColumnIndexOrThrow(DBHandler.COUNTRY_NAME)),
+                c.getString(c.getColumnIndexOrThrow(DBHandler.IMAGE_ID)),
+                c.getInt(c.getColumnIndexOrThrow(DBHandler.LOCATION_ID))
             ))
         }
 

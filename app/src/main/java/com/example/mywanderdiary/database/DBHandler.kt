@@ -22,7 +22,7 @@ class DBHandler (context: Context?) :
 
             const val ENTRY_ID = "entry_id"
             const val COVER_IMAGE_ID = "cover_image_id"
-//            const val LOCATION_NAME = "location_name"
+            const val ENTRY_NAME = "entry_name"
             const val ENTRY_DATE = "entry_date"
             const val ENTRY_CONTENT = "entry_content"
             const val COUNTRY_NAME = "country_name"
@@ -42,6 +42,7 @@ class DBHandler (context: Context?) :
             val CREATE_ENTRY_TABLE =
                 "CREATE TABLE IF NOT EXISTS " + ENTRY_TABLE + " (" +
                         ENTRY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        ENTRY_NAME + " TEXT, " +
                         COVER_IMAGE_ID + " INTEGER, " +
 //                        LOCATION_NAME + " TEXT, " +
                         ENTRY_DATE + " TEXT, " + // Store dates as TEXT in ISO 8601 format

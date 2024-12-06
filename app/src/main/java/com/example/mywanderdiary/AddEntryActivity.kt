@@ -58,7 +58,7 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         binding.acitivityBtnAddEntry.setOnClickListener {
-            val entryLocationName = binding.activityAddEntryInputLocation.text.toString()
+            val entryName = binding.activityAddEntryInputLocation.text.toString()
             val visitDateString = binding.activityAddEntryInputDate.text.toString()
             val journalEntry = binding.activityAddEntryInputContent.text.toString()
 
@@ -93,7 +93,7 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // make entry with locationID
             val entry =
-                Entry(0, addressLine, visitDate, journalEntry, country, imageUri.toString(), locationID)
+                Entry(0, entryName, visitDate, journalEntry, country, imageUri.toString(), locationID)
             locationDatabase.addEntry(entry)
             finish()
         }
