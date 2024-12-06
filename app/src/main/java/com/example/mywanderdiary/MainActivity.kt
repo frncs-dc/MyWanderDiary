@@ -1,7 +1,9 @@
 package com.example.mywanderdiary
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -9,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.mywanderdiary.database.DBHandler
 import com.example.mywanderdiary.database.LocationDatabase
 import com.example.mywanderdiary.databinding.ActivityMainBinding
 import com.google.android.gms.maps.GoogleMap
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var gMap: GoogleMap
+    private var complete_status = "INCOMPLETE";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +42,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        val complete_status = intent.getStringExtra("KEY_ONBOARDING_STATUS")
+        val sp : SharedPreferences = getSharedPreferences("WanderDiaryPrefs", Context.MODE_PRIVATE)
+        complete_status = sp.getString("KEY_ONBOARDING_STATUS", "INCOMPLETE").toString()
 
-        if(!complete_status.equals("COMPLETE")){
+        if(complete_status.equals("INCOMPLETE")){
             val intent = Intent(this, OnboardingActivity::class.java)
             startActivity(intent)
         } else {
@@ -73,7 +76,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
+        val sp : SharedPreferences = getSharedPreferences("WanderDiaryPrefs", Context.MODE_PRIVATE)
+        complete_status = sp.getString("KEY_ONBOARDING_STATUS", "INCOMPLETE").toString()
     }
 
     private fun setCurrentFragment(fragment: Fragment) =

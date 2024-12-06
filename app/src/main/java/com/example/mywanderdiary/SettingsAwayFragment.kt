@@ -2,15 +2,15 @@ package com.example.mywanderdiary
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.mywanderdiary.database.LocationDatabase
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -43,10 +43,15 @@ class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapRea
         super.onResume()
         val sharedPreferences = requireContext().getSharedPreferences("WanderDiaryPrefs", Context.MODE_PRIVATE)
         radius = sharedPreferences.getInt("RADIUS", 0)
+        Log.d("RAD:", radius.toString())
+        radiusInput.progress = radius
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_settings_away, container, false)
+        val sharedPreferences = requireContext().getSharedPreferences("WanderDiaryPrefs", Context.MODE_PRIVATE)
+        radius = sharedPreferences.getInt("RADIUS", 0)
 
         location = locationDatabase.getLocations()[0]
         defaultLocation = LatLng(location.LOCATION_LAT, location.LOCATION_LON)
@@ -59,6 +64,10 @@ class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapRea
         radiusInput = view.findViewById(R.id.fragment_settings_away_seekbar)
         seekBarValue = view.findViewById(R.id.fragment_settings_away_tv_seekbar_value)
         saveBtn = view.findViewById(R.id.fragment_settings_away_btn_save)
+
+        radiusInput.min = 0
+        radiusInput.max = 1000
+        radiusInput.progress = radius
 
         radiusInput.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
