@@ -7,7 +7,6 @@ import android.provider.MediaStore
 import android.util.Log
 import androidx.viewbinding.ViewBinding
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.util.query
 import com.example.mywanderdiary.databinding.ActivityMainEntryBinding
 import com.example.mywanderdiary.databinding.FragmentHomeBinding
 import com.squareup.picasso.Picasso

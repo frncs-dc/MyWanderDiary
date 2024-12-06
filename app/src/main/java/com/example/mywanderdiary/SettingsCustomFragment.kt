@@ -88,14 +88,14 @@ class SettingsCustomFragment : Fragment(R.layout.fragment_settings_custom), OnMa
         val defaultLocation = LatLng(lat, lon)
 
         for (location in Database.cachedLocations) {
-
-            // Assuming each location has latitude and longitude properties
-            val latLng = LatLng(location.LOCATION_LAT, location.LOCATION_LON)
-            googleMap.addMarker(
-                MarkerOptions()
-                    .position(latLng)
-                    .title(location.LOCATION_NAME)
-            )
+            if (location.LOCATION_TYPE == LocationType.IGNORED) {
+                val latLng = LatLng(location.LOCATION_LAT, location.LOCATION_LON)
+                googleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng)
+                        .title("Ignored - " + location.LOCATION_NAME)
+                )
+            }
         }
 
         // gMap.addMarker(MarkerOptions().position(defaultLocation).title("Home"))
