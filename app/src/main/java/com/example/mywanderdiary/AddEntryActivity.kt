@@ -34,6 +34,7 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
     private var lat = 14.562961;
     private var lon = -239.005310;
     private lateinit var locationDatabase: Database
+
     private var imageUri: Uri? = null
     private val PICK_IMAGE_REQUEST: Int = 1
     private lateinit var location: Location;
@@ -129,7 +130,6 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
         return parsedDetails
     }
 
-
     fun getLocationDetails(context: Context, latitude: Double, longitude: Double): String {
         // Check if Geocoder is available on the device
         val geocoder = Geocoder(context, Locale.getDefault())
@@ -156,26 +156,6 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
             return "Error occurred while fetching location details"
         }
     }
-
-    private fun getLocalImageUri(uri: Uri): Uri? {
-        return try {
-            // Create a temp file in the cache directory
-            val tempFile = File.createTempFile("temp_image", ".jpg", cacheDir)
-
-            // Use ContentResolver to copy the image data to the temp file
-            contentResolver.openInputStream(uri)?.use { inputStream ->
-                tempFile.outputStream().use { outputStream ->
-                    inputStream.copyTo(outputStream)
-                }
-            }
-            // Return the URI of the cached file
-            Uri.fromFile(tempFile)
-        } catch (e: Exception) {
-            Log.e("ImageURI", "Failed to resolve local URI", e)
-            null
-        }
-    }
-
 
     private fun openGallery() {
         // Intent to pick an image from the gallery

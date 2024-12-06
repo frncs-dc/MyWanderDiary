@@ -26,7 +26,5 @@ class EntryViewHolder (private val viewBinding: ActivityMainEntryBinding): Recyc
         Picasso.get()
             .load(imageUri)
             .into(viewBinding.activityMainEntryIvImage)
-
-
     }
 }

@@ -27,6 +27,40 @@ class Database(context: Context) {
         var cachedEntry: ArrayList<Entry> = ArrayList<Entry>()
     }
 
+    fun getLocationThruID(id: Int): Location? {
+        val database: SQLiteDatabase = databaseHandler.readableDatabase
+
+        val selection = "${DBHandler.LOCATION_ID} = ?"
+        val selectionArgs = arrayOf(id.toString())
+
+        val cursor: Cursor = database.query(
+            DBHandler.LOCATION_TABLE,  // Table name
+            null,                      // Columns (null fetches all columns)
+            selection,                 // WHERE clause
+            selectionArgs,             // WHERE arguments
+            null,                      // Group by
+            null,                      // Having
+            null                       // Order by
+        )
+
+        var location: Location? = null
+
+        if (cursor.moveToFirst()) {
+            location = Location(
+                cursor.getInt(cursor.getColumnIndexOrThrow(DBHandler.LOCATION_ID)),
+                cursor.getString(cursor.getColumnIndexOrThrow(DBHandler.LOCATION_NAME)),
+                LocationType.valueOf(cursor.getString(cursor.getColumnIndexOrThrow(DBHandler.LOCATION_TYPE))),
+                cursor.getDouble(cursor.getColumnIndexOrThrow(DBHandler.LOCATION_LAT)),
+                cursor.getDouble(cursor.getColumnIndexOrThrow(DBHandler.LOCATION_LON))
+            )
+        }
+
+        cursor.close()
+        database.close()
+
+        return location
+    }
+
     // Inserts a provided media item into the database. Returns the id provided by the DB.
     fun addLocation(location: Location) : Int {
         val db = databaseHandler.writableDatabase
