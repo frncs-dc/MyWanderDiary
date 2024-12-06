@@ -1,10 +1,10 @@
 package com.example.mywanderdiary
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -26,6 +26,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         adapter = ViewPagerAdapter(this)
 
         viewPager2.adapter = adapter
+
+        viewPager2.isUserInputEnabled = false
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
