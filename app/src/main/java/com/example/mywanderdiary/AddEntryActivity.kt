@@ -21,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -156,7 +157,28 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    private fun getLocalImageUri(uri: Uri): Uri? {
+        return try {
+            // Create a temp file in the cache directory
+            val tempFile = File.createTempFile("temp_image", ".jpg", cacheDir)
+
+            // Use ContentResolver to copy the image data to the temp file
+            contentResolver.openInputStream(uri)?.use { inputStream ->
+                tempFile.outputStream().use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+            }
+            // Return the URI of the cached file
+            Uri.fromFile(tempFile)
+        } catch (e: Exception) {
+            Log.e("ImageURI", "Failed to resolve local URI", e)
+            null
+        }
+    }
+
+
     private fun openGallery() {
+        // Intent to pick an image from the gallery
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
@@ -165,10 +187,38 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            imageUri = data.data
-            binding.imagePreview.setImageURI(imageUri)
+            val selectedImageUri = data.data
+            if (selectedImageUri != null) {
+                // Copy content to cache and get a local URI
+                val localUri = copyUriToCache(selectedImageUri)
+                if (localUri != null) {
+                    binding.imagePreview.setImageURI(localUri)
+                    imageUri = localUri
+                } else {
+                    Log.e("ImageCopy", "Failed to copy selected image to cache.")
+                }
+            }
         }
     }
+
+    private fun copyUriToCache(uri: Uri): Uri? {
+        return try {
+            // Create a file in the cache directory
+            val cacheFile = File(cacheDir, "cached_image_${System.currentTimeMillis()}.jpg")
+            contentResolver.openInputStream(uri)?.use { inputStream ->
+                cacheFile.outputStream().use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+            }
+            // Return a file URI
+            Uri.fromFile(cacheFile)
+        } catch (e: Exception) {
+            Log.e("ImageCopy", "Failed to copy URI to cache", e)
+            null
+        }
+    }
+
+
 
     override fun onMapReady(googleMap: GoogleMap) {
         gMap = googleMap

@@ -54,6 +54,7 @@ android {
 dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.room.ktx)
     val appcompat_version = "1.7.0"
     val fragment_version = "1.8.4"
 
@@ -101,4 +102,6 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation(platform("androidx.compose:compose-bom:2024.10.01"))
+
 }
