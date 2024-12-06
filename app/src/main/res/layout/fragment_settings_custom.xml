@@ -49,6 +49,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_settings_custom_tv_heading" />
 
+        <fragment
+            android:id="@+id/fragment_settings_custom_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_settings_custom_tv_heading" />
+
         <EditText
             android:id="@+id/fragment_settings_custom_et_address"
             android:layout_width="0dp"

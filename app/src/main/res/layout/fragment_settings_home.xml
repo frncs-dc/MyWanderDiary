@@ -28,6 +28,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="0dp"
             android:layout_height="440dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_settings_home_tv_header" />
@@ -36,7 +37,9 @@
             android:id="@+id/fragment_settings_home_et_address"
             android:layout_width="0dp"
             android:layout_height="42dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_button_white"
             android:ems="10"
             android:fontFamily="@font/inter"
