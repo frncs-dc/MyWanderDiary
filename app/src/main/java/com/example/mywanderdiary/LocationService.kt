@@ -78,12 +78,24 @@ class LocationService: Service() {
                     "Location: ($lat, $long)"
                 )
                 notificationManager.notify(1, updatedNotification.build())
+
+                // Check location against conditions
+                // if (isAwayFromHome(homeLatitude, homeLongitude, location.latitude.toDouble(),location.longitude.toDouble(), awayRadius) && !isIgnoredLocation(location)) {
+                    // Trigger notification for new location
+                //    sendLocationDetectedNotification()
+                // }
             }
             .launchIn(serviceScope)
 
         Log.d("LOC:", "service start")
 
         startForeground(1, notification.build())
+
+        // TODO: Add functionality where:
+    //      if user's current location != home location
+        //  && user outside of away radius
+        //  && user's current location != list of ignored locations
+        //      then notify user "New location detected! Make entry?"
     }
 
     private fun stop() {
@@ -95,6 +107,39 @@ class LocationService: Service() {
         super.onDestroy()
         serviceScope.cancel()
     }
+
+    /*
+    private fun isAwayFromHome(homeLatitude: Double, homeLongitude: Double, currentLatitude: Double, currentLongitude: Double, awayRadius: Int): Boolean {
+        // Convert latitude and longitude differences to km
+        val latDiff = (currentLatitude - homeLatitude) * 110.574
+        val longDiff = (currentLongitude - homeLongitude) * 111.320 * Math.cos(Math.toRadians(homeLatitude))
+
+        // Calculate the total distance in km
+        val distance = Math.sqrt(latDiff * latDiff + longDiff * longDiff)
+
+        // Check if the distance exceeds the away radius (in km)
+        return distance > awayRadius
+    }
+
+    private fun isIgnoredLocation(location: Location): Boolean {
+        return ignoredLocations.any {
+            it.distanceTo(location) < 100f
+        }
+    }
+
+    private fun sendLocationDetectedNotification() {
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notification = NotificationCompat.Builder(this, "location")
+            .setContentTitle("New location detected!")
+            .setContentText("Make a new entry in MyWanderDiary?")
+            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setOngoing(true)
+            .build()
+
+        notificationManager.notify(2, notification)
+    }
+
+     */
 
     companion object {
         const val ACTION_START = "ACTION_START"

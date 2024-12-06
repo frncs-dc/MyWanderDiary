@@ -23,5 +23,12 @@ class LocationAdapter(private val locations: ArrayList<Location>): RecyclerView.
         if (locations.get(position).LOCATION_TYPE == LocationType.IGNORED){
             holder.bindData(locations.get(position))
         }
+
+        // TODO : ADD onClickListener FOR ITEM TO MOVE GOOGLE MAP CAMERA
+//        holder.itemView.setOnClickListener() {
+//            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locations.get(position), 14f))
+//            val intent = Intent(holder.itemView.context, ViewEntryActivity::class.java)
+//            holder.itemView.context.startActivity(intent)
+//        }
     }
 }
