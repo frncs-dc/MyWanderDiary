@@ -104,7 +104,6 @@ class SettingsCustomFragment : Fragment(R.layout.fragment_settings_custom), OnMa
 
     private fun goToLocation(latitude: Double, longitude: Double, zoom: Float) {
         val newLocation = LatLng(latitude, longitude)
-        gMap.clear() // Clear existing markers
         gMap.addMarker(MarkerOptions().position(newLocation).title("Searched Location"))
         gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation, zoom))
     }
