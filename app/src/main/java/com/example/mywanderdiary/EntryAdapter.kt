@@ -31,4 +31,10 @@ class EntryAdapter(private val entries: ArrayList<Entry>): RecyclerView.Adapter<
             holder.itemView.context.startActivity(intent)
         }
     }
+
+    fun updateEntries(newEntries: List<Entry>) {
+        entries.clear()
+        entries.addAll(newEntries)
+        notifyDataSetChanged() // Notify RecyclerView that data has changed
+    }
 }

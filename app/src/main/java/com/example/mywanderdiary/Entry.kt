@@ -6,9 +6,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class Entry(coverImageId: Int, entryName: String, stringDate: String, entryContent: String, countryName: String, imageId: String, locationID: Int):
+class Entry(entryName: String, stringDate: String, entryContent: String, countryName: String, imageId: String, locationID: Int):
     Serializable {
-    var coverImageId = coverImageId
     var entryName = entryName
     var countryName = countryName
     var stringDate = stringDate

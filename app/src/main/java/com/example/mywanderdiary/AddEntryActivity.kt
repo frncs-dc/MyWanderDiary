@@ -1,5 +1,6 @@
 package com.example.mywanderdiary
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.location.Address
@@ -93,12 +94,14 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // make entry with locationID
             val entry =
-                Entry(0, entryName, visitDateString, journalEntry, country, imageUri.toString(), locationID)
+                Entry(entryName, visitDateString, journalEntry, country, imageUri.toString(), locationID)
             locationDatabase.addEntry(entry)
+            setResult(Activity.RESULT_OK)
             finish()
         }
 
         binding.acitivityAddEntryClose.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
             finish()
         }
 

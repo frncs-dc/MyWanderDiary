@@ -50,7 +50,6 @@ class Database(context: Context) {
         val db = databaseHandler.writableDatabase
 
         val values = ContentValues().apply {
-            put(DBHandler.COVER_IMAGE_ID, entry.coverImageId)
             put(DBHandler.ENTRY_NAME, entry.entryName)
             put(DBHandler.ENTRY_DATE, entry.stringDate) // Save as string
             put(DBHandler.ENTRY_CONTENT, entry.entryContent)
@@ -172,7 +171,6 @@ class Database(context: Context) {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         while(c.moveToNext()) {
             result.add(Entry(
-                c.getInt(c.getColumnIndexOrThrow(DBHandler.COVER_IMAGE_ID)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_NAME)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_DATE)), // As String, then parse if necessary
                 c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_CONTENT)),
