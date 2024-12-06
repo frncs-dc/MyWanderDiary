@@ -44,10 +44,10 @@ class DBHandler (context: Context?) :
                         ENTRY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         ENTRY_NAME + " TEXT, " +
                         COVER_IMAGE_ID + " INTEGER, " +
-//                        LOCATION_NAME + " TEXT, " +
                         ENTRY_DATE + " TEXT, " + // Store dates as TEXT in ISO 8601 format
                         ENTRY_CONTENT + " TEXT, " +
                         COUNTRY_NAME + " TEXT, " +
+                        LOCATION_ID + " INTEGER, " +
                         IMAGE_ID + " TEXT) "
 
             db?.execSQL(CREATE_MEDIA_TABLE)

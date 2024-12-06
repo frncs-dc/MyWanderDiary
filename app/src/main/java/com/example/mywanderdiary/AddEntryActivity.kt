@@ -93,7 +93,7 @@ class AddEntryActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // make entry with locationID
             val entry =
-                Entry(0, entryName, visitDate, journalEntry, country, imageUri.toString(), locationID)
+                Entry(0, entryName, visitDateString, journalEntry, country, imageUri.toString(), locationID)
             locationDatabase.addEntry(entry)
             finish()
         }

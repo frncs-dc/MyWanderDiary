@@ -52,7 +52,7 @@ class Database(context: Context) {
         val values = ContentValues().apply {
             put(DBHandler.COVER_IMAGE_ID, entry.coverImageId)
             put(DBHandler.ENTRY_NAME, entry.entryName)
-            put(DBHandler.ENTRY_DATE, entry.formatDate(entry.date)) // Save as string
+            put(DBHandler.ENTRY_DATE, entry.stringDate) // Save as string
             put(DBHandler.ENTRY_CONTENT, entry.entryContent)
             put(DBHandler.COUNTRY_NAME, entry.countryName)
             put(DBHandler.IMAGE_ID, entry.imageId)
@@ -174,7 +174,7 @@ class Database(context: Context) {
             result.add(Entry(
                 c.getInt(c.getColumnIndexOrThrow(DBHandler.COVER_IMAGE_ID)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_NAME)),
-                dateFormat.parse(c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_DATE))), // As String, then parse if necessary
+                c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_DATE)), // As String, then parse if necessary
                 c.getString(c.getColumnIndexOrThrow(DBHandler.ENTRY_CONTENT)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.COUNTRY_NAME)),
                 c.getString(c.getColumnIndexOrThrow(DBHandler.IMAGE_ID)),

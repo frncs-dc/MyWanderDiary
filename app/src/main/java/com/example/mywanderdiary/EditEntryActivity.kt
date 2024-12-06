@@ -26,8 +26,7 @@ class EditEntryActivity : AppCompatActivity() {
 
         binding.acitivityBtnEditEntry.setOnClickListener{
             entry.entryName = binding.activityEditEntryInputLocation.text.toString()
-            entry.date = sdf.parse(binding.activityEditEntryInputDate.text.toString())
-            entry.stringDate = entry.formatDate(entry.date)
+            entry.stringDate = binding.activityEditEntryInputDate.text.toString()
             entry.entryContent = binding.activityEditEntryInputContent.text.toString()
 
             finish()
