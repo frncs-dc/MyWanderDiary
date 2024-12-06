@@ -2,19 +2,13 @@ package com.example.mywanderdiary
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.location.Address
-import android.location.Geocoder
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,14 +16,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import java.io.IOException
 
 class SetRadiusFragment: Fragment(R.layout.activity_start_away_radius), OnMapReadyCallback {
 
     private lateinit var gMap: GoogleMap
     private lateinit var radiusInput: SeekBar
     private lateinit var seekBarValueTextView: TextView
-    private lateinit var locationDatabase: LocationDatabase
+    private lateinit var locationDatabase: Database
     private var radius = 0;
     private lateinit var location : Location;
     private lateinit var defaultLocation: LatLng;
@@ -38,7 +31,7 @@ class SetRadiusFragment: Fragment(R.layout.activity_start_away_radius), OnMapRea
         super.onAttach(context)
         // Check if the fragment is attached before initializing
         if (isAdded) {
-            locationDatabase = LocationDatabase(context)
+            locationDatabase = Database(context)
         }
     }
 

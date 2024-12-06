@@ -12,7 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -24,7 +24,7 @@ import java.io.IOException
 class SettingsHomeFragment : Fragment(R.layout.fragment_settings_home), OnMapReadyCallback {
 
     private lateinit var gMap: GoogleMap
-    private lateinit var locationDatabase: LocationDatabase
+    private lateinit var locationDatabase: Database
     private lateinit var homeInput: EditText
     private lateinit var saveBtn: Button
     private var lat = 0.0
@@ -35,7 +35,7 @@ class SettingsHomeFragment : Fragment(R.layout.fragment_settings_home), OnMapRea
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // Safe to initialize now that the fragment is attached to the context
-        locationDatabase = LocationDatabase(context)
+        locationDatabase = Database(context)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,7 +48,7 @@ class SettingsHomeFragment : Fragment(R.layout.fragment_settings_home), OnMapRea
 
         homeInput = view.findViewById(R.id.fragment_settings_home_et_address)
         saveBtn = view.findViewById(R.id.fragment_settings_home_btn_save)
-        homeInput.setText(LocationDatabase.cachedLocations.get(0).LOCATION_NAME)
+        homeInput.setText(Database.cachedLocations.get(0).LOCATION_NAME)
 
         saveBtn.setOnClickListener(){
             findOnMap()
@@ -73,7 +73,7 @@ class SettingsHomeFragment : Fragment(R.layout.fragment_settings_home), OnMapRea
         gMap = googleMap
 
         // Default location
-        val defaultLocation = LocationDatabase.cachedLocations.get(0).let {
+        val defaultLocation = Database.cachedLocations.get(0).let {
             LatLng(
                 it.LOCATION_LAT,
                 it.LOCATION_LON

@@ -5,10 +5,11 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
+import com.example.mywanderdiary.Entry
 import com.example.mywanderdiary.Location
 import com.example.mywanderdiary.LocationType
 
-class LocationDatabase(context: Context) {
+class Database(context: Context) {
     // A private instance of the DB helper
     private lateinit var databaseHandler : DBHandler
 
@@ -21,6 +22,7 @@ class LocationDatabase(context: Context) {
     companion object {
         // This ArrayList will persist through the app
         var cachedLocations: ArrayList<Location> = ArrayList<Location>()
+        var cachedEntry: ArrayList<Entry> = ArrayList<Entry>()
     }
 
     // Inserts a provided media item into the database. Returns the id provided by the DB.
@@ -40,6 +42,27 @@ class LocationDatabase(context: Context) {
         db.close()
 
         return _id.toInt()
+    }
+
+    fun addEntry(entry: Entry) : Int{
+        val db = databaseHandler.writableDatabase
+
+        val values = ContentValues().apply {
+            put(DBHandler.COVER_IMAGE_ID, entry.coverImageId)
+            put(DBHandler.ENTRY_DATE, entry.formatDate(entry.date)) // Save as string
+            put(DBHandler.ENTRY_CONTENT, entry.entryContent)
+            put(DBHandler.COUNTRY_NAME, entry.countryName)
+            put(DBHandler.IMAGE_ID, entry.imageId)
+        }
+
+        val _id = db.insert(DBHandler.ENTRY_TABLE, null, values)
+
+        cachedEntry.add(entry)
+
+        db.close()
+
+        return _id.toInt()
+
     }
 
     /*  TODO #1

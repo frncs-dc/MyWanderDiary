@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -25,7 +25,7 @@ class CustomIgnoredLocFragment: Fragment(R.layout.activity_start_custom_ignored)
     private lateinit var addressInput: EditText
     private var lat = 14.562961;
     private var lon = -239.005310;
-    private lateinit var locationDatabase: LocationDatabase
+    private lateinit var locationDatabase: Database
     private lateinit var addMoreAddressButton: Button
     private lateinit var continueButton: Button
     private lateinit var searchButton: Button
@@ -34,7 +34,7 @@ class CustomIgnoredLocFragment: Fragment(R.layout.activity_start_custom_ignored)
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // Safe to initialize now that the fragment is attached to the context
-        locationDatabase = LocationDatabase(context)
+        locationDatabase = Database(context)
         locationDatabase.initializeCachedLocations()
     }
 
@@ -60,7 +60,7 @@ class CustomIgnoredLocFragment: Fragment(R.layout.activity_start_custom_ignored)
             findOnMap()
             locationDatabase.addLocation(
                 Location(
-                    LocationDatabase.cachedLocations.size + 1,
+                    Database.cachedLocations.size + 1,
                     addressInput.text.toString(),
                     LocationType.IGNORED,
                     lat,

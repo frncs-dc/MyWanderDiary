@@ -2,7 +2,6 @@ package com.example.mywanderdiary
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
@@ -12,7 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -27,13 +26,13 @@ class HomeLocationFragment : Fragment(R.layout.activity_start_home), OnMapReadyC
     private lateinit var addressInput: EditText
     private var lat = 14.562961;
     private var lon = -239.005310;
-    private lateinit var locationDatabase: LocationDatabase
+    private lateinit var locationDatabase: Database
 
     // Initialize locationDatabase in onAttach instead of onViewCreated
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // Safe to initialize now that the fragment is attached to the context
-        locationDatabase = LocationDatabase(context)
+        locationDatabase = Database(context)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

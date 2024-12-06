@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.example.mywanderdiary.databinding.ActivityMainBinding
 import com.google.android.gms.maps.GoogleMap
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Create the LocationDatabase instance
-        val locationDatabase = LocationDatabase(this)
+        val locationDatabase = Database(this)
 
         // Initialize cachedLocations to load the data from the DB
         locationDatabase.initializeCachedLocations()

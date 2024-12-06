@@ -11,7 +11,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.mywanderdiary.database.LocationDatabase
+import com.example.mywanderdiary.database.Database
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapReadyCallback {
     private lateinit var gMap: GoogleMap
-    private lateinit var locationDatabase: LocationDatabase
+    private lateinit var locationDatabase: Database
     private lateinit var radiusInput: SeekBar
     private lateinit var saveBtn: Button
     private lateinit var seekBarValue: TextView
@@ -36,7 +36,7 @@ class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapRea
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // Safe to initialize now that the fragment is attached to the context
-        locationDatabase = LocationDatabase(context)
+        locationDatabase = Database(context)
     }
 
     override fun onResume() {
@@ -120,7 +120,7 @@ class SettingsAwayFragment : Fragment(R.layout.fragment_settings_away), OnMapRea
         gMap = googleMap
 
         // Default location
-        val defaultLocation = LocationDatabase.cachedLocations.get(0).let {
+        val defaultLocation = Database.cachedLocations.get(0).let {
             LatLng(
                 it.LOCATION_LAT,
                 it.LOCATION_LON
